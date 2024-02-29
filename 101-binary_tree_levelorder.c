@@ -29,7 +29,8 @@ size_t get_binary_tree_height(const binary_tree_t *tree)
   *
   * Return: Nothing!
   */
-void _print_tree_level(const binary_tree_t *tree, void (*func)(int), size_t level)
+void _print_tree_level(const binary_tree_t *tree, void (*func)(int),
+		size_t level)
 {
 	if (tree == NULL)
 		return;
