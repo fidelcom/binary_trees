@@ -7,6 +7,27 @@ avl_t *avl_tree_insert_recursive(avl_t **tree, avl_t *parent,
 avl_t *avl_insert(avl_t **tree, int value);
 
 /**
+ * binary_tree_height - Measures the height of a binary tree
+ * @tree: root node of the tree
+ *
+ * Return: tree height, 0 if tree is NULL
+ */
+size_t binary_tree_height(const binary_tree_t *tree)
+{
+	size_t r_side, l_side;
+
+	if (tree == NULL || (tree->left == NULL && tree->right == NULL))
+		return (0);
+
+	l_side = binary_tree_height(tree->left);
+	r_side = binary_tree_height(tree->right);
+
+	if (l_side > r_side)
+		return (l_side + 1);
+	return (r_side + 1);
+}
+
+/**
  * h - Measures the h of a binary tree.
  * @tree: A pointer to the root node of the tree to measure the h.
  *
@@ -27,8 +48,7 @@ size_t h(const binary_tree_t *tree)
 
 /**
  * balance_factor - Measures the balance_factor factor of a binary tree.
- * @tree: A pointer to the root node of the tree to measure the
- * balance_factor factor.
+ * @tree: A pointer to the root node of the tree to measure the balance_factor factor.
  *
  * Return: If tree is NULL, return 0, else return balance_factor factor.
  */
@@ -56,15 +76,13 @@ avl_t *avl_tree_insert_recursive(avl_t **tree, avl_t *parent,
 
 	if ((*tree)->n > value)
 	{
-		(*tree)->left = avl_tree_insert_recursive(&(*tree)->left, *tree, new,
-				value);
+		(*tree)->left = avl_tree_insert_recursive(&(*tree)->left, *tree, new, value);
 		if ((*tree)->left == NULL)
 			return (NULL);
 	}
 	else if ((*tree)->n < value)
 	{
-		(*tree)->right = avl_tree_insert_recursive(&(*tree)->right, *tree,
-				new, value);
+		(*tree)->right = avl_tree_insert_recursive(&(*tree)->right, *tree, new, value);
 		if ((*tree)->right == NULL)
 			return (NULL);
 	}
