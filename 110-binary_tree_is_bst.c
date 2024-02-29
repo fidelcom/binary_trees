@@ -7,7 +7,7 @@
  * @max_val: maximum node value
  * Return: 1 if tree is a valid BST and 0 otherwise
  */
-int is_valid_bst(const binary_tree_t* tree, int min_val, int max_val)
+int is_valid_bst(const binary_tree_t *tree, int min_val, int max_val)
 {
 	if (tree == NULL)
 		return (1);
