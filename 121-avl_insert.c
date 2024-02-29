@@ -48,7 +48,8 @@ size_t h(const binary_tree_t *tree)
 
 /**
  * balance_factor - Measures the balance_factor factor of a binary tree.
- * @tree: A pointer to the root node of the tree to measure the balance_factor factor.
+ * @tree: A pointer to the root node of the tree to measure the
+ * balance_factor factor.
  *
  * Return: If tree is NULL, return 0, else return balance_factor factor.
  */
@@ -76,13 +77,15 @@ avl_t *avl_tree_insert_recursive(avl_t **tree, avl_t *parent,
 
 	if ((*tree)->n > value)
 	{
-		(*tree)->left = avl_tree_insert_recursive(&(*tree)->left, *tree, new, value);
+		(*tree)->left = avl_tree_insert_recursive(&(*tree)->left, *tree,
+				new, value);
 		if ((*tree)->left == NULL)
 			return (NULL);
 	}
 	else if ((*tree)->n < value)
 	{
-		(*tree)->right = avl_tree_insert_recursive(&(*tree)->right, *tree, new, value);
+		(*tree)->right = avl_tree_insert_recursive(&(*tree)->right, *tree,
+				new, value);
 		if ((*tree)->right == NULL)
 			return (NULL);
 	}
