@@ -22,7 +22,8 @@ void balance_f(avl_t **tree)
 		*tree = binary_tree_rotate_left((binary_tree_t *)*tree);
 }
 /**
- * next_successor - get the next successor i mean the min node in the right subtree
+ * next_successor - get the next successor i mean the min node in the right
+ * subtree
  * @node: tree to check
  * Return: the min value of this tree
  */
@@ -133,3 +134,4 @@ avl_t *avl_remove(avl_t *root, int value)
 	balance_f(&root_a);
 	return (root_a);
 }
+
